@@ -39,16 +39,16 @@ The 10Print algorithm is an easy way to make random-looking mazes. For each squa
 color1 and color2 are the two colors that are interpolated between
 n_bins: Discretizes the interpolation into bins
 """
-`if color_choices is None:`
-`colors = colors2`
-`color_name1 = random.choice(list(colors.keys()))`
-`color_name2 = random.choice(list(colors.keys()))`
-`color1 = colors[color_name1]`
-`color2 = colors[color_name2]`
-`cmap_name = color_name1 + '/' + color_name2`
-`color_choices = [color1, color2]`
-`for n_bin in range(n_bins):`
-`cmap = LinearSegmentedColormap.from_list(cmap_name, color_choices, N=n_bin)`
+`if color_choices is None:`  
+`colors = colors2`  
+`color_name1 = random.choice(list(colors.keys()))`  
+`color_name2 = random.choice(list(colors.keys()))`  
+`color1 = colors[color_name1]`  
+`color2 = colors[color_name2]`  
+`cmap_name = color_name1 + '/' + color_name2`  
+`color_choices = [color1, color2]`  
+`for n_bin in range(n_bins):`  
+`cmap = LinearSegmentedColormap.from_list(cmap_name, color_choices, N=n_bin`    
 `return cmap, color_name1, color_name2`
 
 - I also created some custom markers
