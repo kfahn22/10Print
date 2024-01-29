@@ -56,21 +56,54 @@ n_bins: Discretizes the interpolation into bins
 
 // Define (x, y) vertices
 
-`v3 = [ (-1, -0.66),`
-`(-1, -1),`
-`(-0.66, -1),`
-`(1, 0.66),`
-`(1, 1),`
+`v3 = [ (-1, -0.66),`  
+`(-1, -1),`  
+`(-0.66, -1),`  
+`(1, 0.66),`  
+`(1, 1),`  
 `(0.66, 1)`
 `]`
 
-`v4 = [ (-1, 0.66),`
-`(-1, 1),`
-`(-0.66, 1),`
-`(1, -0.66),`
-`(1, -1),`
+`v4 = [ (-1, 0.66),`  
+`(-1, 1),`  
+`(-0.66, 1),`  
+`(1, -0.66),`  
+`(1, -1),`  
 `(0.66,-1)`
 `]`
+
+- I created a function to create the custom marker from the path
+
+`def create_marker(vert):` # Create a Path object from the vertices
+`path = Path(vert)`
+`return path`
+
+`m3 = create_marker(v3) # thicker upward slash`
+`m4 = create_marker(v4) # thicker downward slash`
+
+- Create the 10Print function using np.where to place the markers according the the random pattern
+
+`import numpy as np`  
+`import matplotlib.pyplot as plt`
+
+`def ten_print(colors, path):`  
+ `rows = 20`  
+ `cols = 20`  
+ `pattern = np.random.choice([0, 1], size=(rows, cols), p=[0.3, 0.7])`
+
+    """Plot the pattern with thicker lines
+    If you want thinner lines, add m1, m2"""
+
+    `plt.figure(figsize=(4, 4))`
+    `plt.scatter(*np.where(pattern == 0), s=130, marker=m3, color=colors[1])`
+    `plt.scatter(*np.where(pattern == 1), s=130, marker=m4, color=colors[1])`
+    `plt.axis('off')`
+
+    `save_path = path`
+
+    # Save the plot
+    `plt.savefig(save_path, bbox_inches='tight', facecolor=colors[2])`
+    `plt.close()`
 
 This is the line from the jsonl file about the image:
 `{"file_name": "10.png", "text": "a sand yellow 10Print pattern on a prussian blue background"}`
