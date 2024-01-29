@@ -17,28 +17,27 @@ The 10Print algorithm is an easy way to make random-looking mazes. For each squa
 
 - Create a folder for the images
 
-`import os`
-`generated_images_dir = "/content/images"`
+`import os`  
+`generated_images_dir = "/content/images"`  
 `os.makedirs(generated_images_dir, exist_ok=True)`
 
 - I created a function to define a custom colormap
 
-`import random`
+`import random`  
 `import matplotlib.colors as mcolors`
 
-`import matplotlib.pyplot as plt`
+`import matplotlib.pyplot as plt`  
 `import numpy as np`
 
-// import matplotlib as mpl
 `from matplotlib.colors import LinearSegmentedColormap`
 `colors1 = mcolors.CSS4_COLORS`
 `colors2 = mcolors.XKCD_COLORS`
 
-`def make_colormap(n_bins, color_choices=None):`
+`def make_colormap(n_bins, color_choices=None):`  
 """Return a LinearSegmentedColormap
 color1 and color2 are the two colors that are interpolated between
 n_bins: Discretizes the interpolation into bins
-"""
+"""  
 `if color_choices is None:`  
 `colors = colors2`  
 `color_name1 = random.choice(list(colors.keys()))`  
@@ -48,7 +47,7 @@ n_bins: Discretizes the interpolation into bins
 `cmap_name = color_name1 + '/' + color_name2`  
 `color_choices = [color1, color2]`  
 `for n_bin in range(n_bins):`  
-`cmap = LinearSegmentedColormap.from_list(cmap_name, color_choices, N=n_bin`    
+`cmap = LinearSegmentedColormap.from_list(cmap_name, color_choices, N=n_bin`  
 `return cmap, color_name1, color_name2`
 
 - I also created some custom markers
