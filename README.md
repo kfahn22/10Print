@@ -8,4 +8,8 @@ The 10Print algorithm is an easy way to make random-looking mazes. For each squa
 
 Note that you will need to create a free Huggin Face account and then go to settings and create a **WRITE** access token to push a dataset to the Hugging Face hub.
 
+Once you have pushed the dataset to the hub, your dataset will be converted to Parquet format and a Dataset viewer will be created.
+
+![viewer](assets/viewer.jpg)
+
 [Open Jupyter Notebook](10Print_labeled_image_dataset.ipynb)
